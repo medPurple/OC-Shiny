@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { createGlobalStyle } from 'styled-components';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -13,12 +14,21 @@ import Results from './pages/Survey/Results'
 
 import './index.css';
 
+const GlobalStyle = createGlobalStyle`
+    * {
+      font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
 
+    body {
+      margin: 0;
+    }
+`
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
