@@ -1,32 +1,29 @@
 import Card from '../../components/Card'
 import styled from 'styled-components'
+import colors from '../../utils/style/color'
 
 const CardsContainer = styled.div`
   display: grid;
   gap: 24px;
   grid-template-rows: 350px 350px;
   grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
 `
 
-const FreelanceStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 90px;
+const PageTitle = styled.h1`
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  padding-bottom: 30px;
 `
 
-const FreelanceTitleStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 24px;
-
-`
-
-const Title = styled.h1`
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
+const PageSubtitle = styled.h2`
+  font-size: 20px;
+  color: ${colors.secondary};
+  font-weight: 300;
+  text-align: center;
+  padding-bottom: 30px;
 `
 
 const freelanceProfiles = [
@@ -46,11 +43,11 @@ const freelanceProfiles = [
 
 function Freelances() {
   return (
-    <FreelanceStyles>
-      <FreelanceTitleStyles>
-        <Title>Trouvez votre prestataire</Title>
-        <p> Chez Shiny nous reunissons les meilleurs profils pour vous</p>
-      </FreelanceTitleStyles>
+    <div>
+      <PageTitle>Trouvez votre prestataire</PageTitle>
+      <PageSubtitle>
+        Chez Shiny nous réunissons les meilleurs profils pour vous.
+      </PageSubtitle>
       <CardsContainer>
         {freelanceProfiles.map((profile, index) => (
           <Card
@@ -60,7 +57,7 @@ function Freelances() {
           />
         ))}
       </CardsContainer>
-    </FreelanceStyles>
+    </div>
   )
 }
 
